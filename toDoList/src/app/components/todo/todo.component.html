@@ -1,0 +1,12 @@
+<div *ngIf="todo">
+  <h6>{{ todo.user }}</h6>
+  <ngb-toast
+    class="w-100"
+    [ngClass]="
+      todo.completed ? 'bg-success text-white' : 'bg-danger text-white'
+    "
+    [autohide]="false"
+  >
+    {{ todo.id }} - {{ todo.todo }}
+  </ngb-toast>
+</div>

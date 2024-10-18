@@ -1,0 +1,7 @@
+<div class="card mt-5" *ngIf="user">
+  <img [src]="user.image" [alt]="user.firstName" />
+  <div class="card-body">
+    <h5 class="card-title">{{ user.firstName }} {{ user.lastName }}</h5>
+    <p>{{ user.todos }}</p>
+  </div>
+</div>
