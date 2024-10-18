@@ -920,7 +920,6 @@ export class TodosService {
         user: `${foundUser.firstName} ${foundUser.lastName}`,
       };
     });
-    console.log('Todos', this.todos);
   }
 
   constructor() {}

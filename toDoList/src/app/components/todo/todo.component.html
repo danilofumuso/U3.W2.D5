@@ -1,12 +1,20 @@
 <div *ngIf="todo">
   <h6>{{ todo.user }}</h6>
-  <ngb-toast
-    class="w-100"
-    [ngClass]="
-      todo.completed ? 'bg-success text-white' : 'bg-danger text-white'
-    "
-    [autohide]="false"
-  >
-    {{ todo.id }} - {{ todo.todo }}
-  </ngb-toast>
+  <div class="d-flex">
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        [(ngModel)]="todo.completed"
+      />
+    </div>
+    <ngb-toast
+      [ngClass]="
+        todo.completed ? 'bg-success text-white' : 'bg-danger text-white'
+      "
+      [autohide]="false"
+    >
+      {{ todo.id }} - {{ todo.todo }}
+    </ngb-toast>
+  </div>
 </div>

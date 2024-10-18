@@ -2,6 +2,10 @@
   <img [src]="user.image" [alt]="user.firstName" />
   <div class="card-body">
     <h5 class="card-title">{{ user.firstName }} {{ user.lastName }}</h5>
-    <p>{{ user.todos }}</p>
+    <ul class="list-group mb-5" *ngIf="user.todos && user.todos.length > 0">
+      <li class="list-group-item border-0" *ngFor="let todo of user.todos">
+        <app-todo [todo]="todo"></app-todo>
+      </li>
+    </ul>
   </div>
 </div>

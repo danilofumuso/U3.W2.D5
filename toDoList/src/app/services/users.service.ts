@@ -820,7 +820,6 @@ export class UsersService {
         todos: foundTodo,
       };
     });
-    console.log('Users', this.users);
   }
   constructor() {}
 }

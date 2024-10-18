@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { iTodo } from '../../interfaces/itodo';
 import { TodosService } from '../../services/todos.service';
 import { UsersService } from '../../services/users.service';
@@ -8,8 +8,9 @@ import { UsersService } from '../../services/users.service';
   templateUrl: './completed.component.html',
   styleUrl: './completed.component.scss',
 })
-export class CompletedComponent {
+export class CompletedComponent implements OnInit {
   todos: iTodo[] = [];
+  todo!: iTodo;
 
   constructor(private todosSvc: TodosService, private usersSvc: UsersService) {}
 
@@ -18,6 +19,6 @@ export class CompletedComponent {
 
     this.todos = this.todosSvc.todos.filter((todo) => todo.completed);
 
-    console.log(this.todos);
+    console.log('COMPLETED', this.todos);
   }
 }
