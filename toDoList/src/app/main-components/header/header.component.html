@@ -1,4 +1,4 @@
-<header class="p-3 text-bg-dark">
+<header class="p-3 text-bg-dark sticky-top">
   <div class="container">
     <div
       class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
@@ -26,6 +26,8 @@
           type="search"
           class="form-control form-control-dark text-bg-dark"
           aria-label="Search"
+          [(ngModel)]="userSearched"
+          (input)="onSearchChange()"
         />
       </form>
     </div>

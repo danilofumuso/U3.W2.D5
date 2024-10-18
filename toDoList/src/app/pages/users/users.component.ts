@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { iUser } from '../../interfaces/iuser';
 import { TodosService } from '../../services/todos.service';
 import { UsersService } from '../../services/users.service';
@@ -8,7 +8,7 @@ import { UsersService } from '../../services/users.service';
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss',
 })
-export class UsersComponent {
+export class UsersComponent implements OnInit {
   users: iUser[] = [];
 
   constructor(private todosSvc: TodosService, private usersSvc: UsersService) {}

@@ -10,7 +10,6 @@ import { UsersService } from '../../services/users.service';
 })
 export class CompletedComponent implements OnInit {
   todos: iTodo[] = [];
-  todo!: iTodo;
 
   constructor(private todosSvc: TodosService, private usersSvc: UsersService) {}
 
@@ -18,7 +17,5 @@ export class CompletedComponent implements OnInit {
     this.todosSvc.addUserToTodo(this.usersSvc.users);
 
     this.todos = this.todosSvc.todos.filter((todo) => todo.completed);
-
-    console.log('COMPLETED', this.todos);
   }
 }

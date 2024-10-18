@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { iUser } from '../interfaces/iuser';
 import { iTodo } from '../interfaces/itodo';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -809,6 +810,8 @@ export class UsersService {
     },
   ];
 
+  searched$ = new BehaviorSubject<string>('');
+
   addTodosToUser(todos: iTodo[]): void {
     this.users = this.users.map((user) => {
       const foundTodo = todos.filter((todo) => todo.userId === user.id);
@@ -821,5 +824,10 @@ export class UsersService {
       };
     });
   }
+
+  searchedUser(str: string) {
+    this.searched$.next(str);
+  }
+
   constructor() {}
 }

@@ -3,6 +3,7 @@ import { iTodo } from '../../interfaces/itodo';
 import { TodosService } from '../../services/todos.service';
 import { UsersService } from '../../services/users.service';
 import { iUser } from '../../interfaces/iuser';
+import { find } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.todosSvc.addUserToTodo(this.usersSvc.users);
+    this.usersSvc.searched$.subscribe();
 
     this.todos = this.todosSvc.todos;
   }
