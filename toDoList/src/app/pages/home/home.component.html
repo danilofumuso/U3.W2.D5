@@ -3,12 +3,23 @@
     <h3 class="text-start my-5 display-4">ToDos</h3>
     <div class="col-12 col-md-9">
       <ul class="list-group mb-5">
+        @if (search) {
+
         <li
+          *ngFor="let todo of filteredTodos"
           class="list-group-item rounded-2 border-black border-top mb-2"
-          *ngFor="let todo of todos"
         >
           <app-todo [todo]="todo"></app-todo>
         </li>
+        } @else {
+
+        <li
+          *ngFor="let todo of todos"
+          class="list-group-item rounded-2 border-black border-top mb-2"
+        >
+          <app-todo [todo]="todo"></app-todo>
+        </li>
+        }
       </ul>
     </div>
   </div>

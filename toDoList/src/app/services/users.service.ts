@@ -825,8 +825,8 @@ export class UsersService {
     });
   }
 
-  searchedUser(str: string) {
-    this.searched$.next(str);
+  searchedUser(search: string) {
+    this.searched$.next(search);
   }
 
   constructor() {}

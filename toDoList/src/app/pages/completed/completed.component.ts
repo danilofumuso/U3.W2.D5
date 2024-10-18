@@ -10,6 +10,8 @@ import { UsersService } from '../../services/users.service';
 })
 export class CompletedComponent implements OnInit {
   todos: iTodo[] = [];
+  filteredTodos: iTodo[] = [];
+  search: string = '';
 
   constructor(private todosSvc: TodosService, private usersSvc: UsersService) {}
 
@@ -17,5 +19,17 @@ export class CompletedComponent implements OnInit {
     this.todosSvc.addUserToTodo(this.usersSvc.users);
 
     this.todos = this.todosSvc.todos.filter((todo) => todo.completed);
+
+    this.usersSvc.searched$.subscribe((search: string) => {
+      this.search = search;
+    });
+  }
+
+  ngDoCheck() {
+    if (this.search) {
+      this.filteredTodos = this.todos.filter((todo) =>
+        todo.user?.toLowerCase().includes(this.search.toLowerCase())
+      );
+    }
   }
 }
